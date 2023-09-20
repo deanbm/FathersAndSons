@@ -26,45 +26,7 @@
     <!-- <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5"> -->
 
     <script>
-        // video autoplay
-        var soundButton = document.getElementById("sound-button");
-        var video = document.getElementById("background-video");
-        var isMuted = true;
-
-        if (video && soundButton) {
-            soundButton.addEventListener("click", function () {
-                toggleSound(); // Toggle sound when the sound button is clicked
-            });
-            // Function to toggle video sound
-            function toggleSound() {
-                isMuted = !isMuted;
-                video.muted = isMuted;
-                if (isMuted) {
-                    soundButton.textContent = "Sound On";
-                } else {
-                    soundButton.textContent = "Sound Off";
-                }
-            }
-
-            video.addEventListener("click", function () {
-                if (isMuted) {
-                    toggleSound(); // Unmute and toggle sound when the video is clicked
-                }
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            });
-
-
-        }
-        else {
-            console.error("one of the elements not found.")
-        }
-
-
-
+        
         // load css files from CDN if local node_modules fail
         function loadCssFromCDN(css) {
             // create new link tag
@@ -331,6 +293,45 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-46465113-4', 'auto');
         ga('send', 'pageview');
+    </script>
+    <script>
+        // video autoplay
+        var soundButton = document.getElementById("sound-button");
+        var video = document.getElementById("background-video");
+        var isMuted = true;
+
+        if (video && soundButton) {
+            soundButton.addEventListener("click", function () {
+                toggleSound(); // Toggle sound when the sound button is clicked
+            });
+            // Function to toggle video sound
+            function toggleSound() {
+                isMuted = !isMuted;
+                video.muted = isMuted;
+                if (isMuted) {
+                    soundButton.textContent = "Sound On";
+                } else {
+                    soundButton.textContent = "Sound Off";
+                }
+            }
+
+            video.addEventListener("click", function () {
+                if (isMuted) {
+                    toggleSound(); // Unmute and toggle sound when the video is clicked
+                }
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+
+
+        }
+        else {
+            console.error("one of the elements not found.")
+        }
+
     </script>
 </body>
 
