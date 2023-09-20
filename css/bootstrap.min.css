@@ -227,6 +227,20 @@ th {
     padding: 0
 }
 
+/* Ensure the video is visible and responsive on all screen sizes */
+/* @media screen { */
+    /* Set a maximum width for the video to prevent overflow */
+    /* .video-container {
+        max-width: 100%;
+        height: auto;
+    } */
+
+    /* If you want to make the video take up the full width of the screen */
+    /* .video-section {
+        width: 100%;
+    }
+} */
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
 
