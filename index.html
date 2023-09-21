@@ -80,25 +80,26 @@
                 </video>
 
             </div>
-            <div class="video-cont">
-                <a href="#rsvp" class="btn btn-fill btn-large">אישור הגעה - RSVP</a>
-            </div>
+
             <button id="sound-button" class="btn btn-fill btn-small">Sound On</button>
+        </div> 
+
+        <!-- <a href="#rsvp" class="btn btn-fill btn-large">אישור הגעה - RSVP</a> -->
+        <div class="down-arrow floating-arrow">
+            <a href="#rsvp" class="btn btn-fill btn-large">אישור הגעה - RSVP</a>
+            <!-- <a href="#rsvp"><i class="fa fa-angle-down"></i></a> -->
         </div>
-
-
-        <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>
     </section>
 
     <section id="invitation" class="section-padding" style="background-color: #fff">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3>קים רביבו          &          דין בן משה</h3>
+                    <h3>קים רביבו & דין בן משה</h3>
                     <br></br>
                     <h1 class="header">ט"ו בטבת תשפ"ד</h1>
                     <h1 class="header">27.12.23</h1>
-                    
+
                 </div>
             </div>
         </div>
@@ -140,6 +141,81 @@
             <h5>האחוזה</h5>
             <br></br>
             <p>בית חנן</p>
+        </div>
+    </section>
+    <section class="rsvp text-center" id="rsvp">
+
+        <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
+                        </button>
+                        <div class="section-padding">
+                            <h3>תודה על המענה !</h3>
+                            <p>נשמח לראותכם :)</p>
+                            <div id="add-to-cal"></div>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h3>אשרו הגעה</h3>
+                    <p>נשמח לדעת אם תגיעו</p>
+                    <form id="rsvp-form" class="rsvp-form" action="" method="POST">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-input-group">
+                                    <i class="fa fa-user"></i><input name="name" class="" placeholder="שם מלא" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-input-group">
+                                    <select class="fa-select">
+                                        <option class="fa-option">0</option>
+                                        <option class="fa-option">1</option>
+                                        <option class="fa-option">2</option>
+                                        <option class="fa-option">3</option>
+                                        <option class="fa-option">4</option>
+                                        <option class="fa-option">5</option>
+                                        <option class="fa-option">6</option>
+                                        <option class="fa-option">7</option>
+                                        <option class="fa-option">8</option>
+                                        <option class="fa-option">9</option>
+                                        <option class="fa-option">10</option>
+                                    </select>
+                                    <!-- <i class="fa fa-envelope"></i><input type="email" name="email" class="" -->
+                                    <!-- placeholder="Your email" required> -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <!-- <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-input-group">
+                                    <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
+                                        max="4" placeholder="Husband/Wife or kids" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-input-group">
+                                    <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
+                                        class="" min="0" placeholder="Invite code" required>
+                                </div>
+                            </div>
+                        </div> -->
+                            <div class="row">
+                                <div class="col-md-12" id="alert-wrapper"></div>
+                            </div>
+                            <button class="btn-fill rsvp-btn">
+                                אישור ושליחה
+                            </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -191,82 +267,6 @@
         </div>
     </section>
 
-    <section class="rsvp text-center" id="rsvp">
-
-        <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                        </button>
-                        <div class="section-padding">
-                            <h3>תודה על המענה !</h3>
-                            <p>נשמח לראותכם :)</p>
-                            <div id="add-to-cal"></div>
-                        </div>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <h3>אשרו הגעה</h3>
-                    <p>נשמח לדעת אם תגיעו</p>
-                    <form id="rsvp-form" class="rsvp-form" action="" method="POST">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-input-group">
-                                    <i class="fa fa-user"></i><input name="name" class="" placeholder="שם מלא"
-                                        required>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-input-group">
-                                    <select class="fa-select">
-                                        <option class="fa-option">0</option>
-                                        <option class="fa-option">1</option>
-                                        <option class="fa-option">2</option>
-                                        <option class="fa-option">3</option>
-                                        <option class="fa-option">4</option>
-                                        <option class="fa-option">5</option>
-                                        <option class="fa-option">6</option>
-                                        <option class="fa-option">7</option>
-                                        <option class="fa-option">8</option>
-                                        <option class="fa-option">9</option>
-                                        <option class="fa-option">10</option>
-                                    </select>
-                                    <!-- <i class="fa fa-envelope"></i><input type="email" name="email" class="" -->
-                                        <!-- placeholder="Your email" required> -->
-                                <!-- </div> -->
-                            </div>
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-input-group">
-                                    <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
-                                        max="4" placeholder="Husband/Wife or kids" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-input-group">
-                                    <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
-                                        class="" min="0" placeholder="Invite code" required>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="row">
-                            <div class="col-md-12" id="alert-wrapper"></div>
-                        </div>
-                        <button class="btn-fill rsvp-btn">
-                            אישור ושליחה
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer style="background-color: #fff">
         <!-- <div class="container">
