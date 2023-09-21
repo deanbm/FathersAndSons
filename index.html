@@ -71,7 +71,7 @@
 <![endif]-->
     <section class="video-section">
 
-        <div><!-- <div class="col-md-4 col-md-offset-4"> -->
+        <div>
             <div class="video-container">
 
                 <video id="background-video" autoplay muted loop playsinline>
@@ -81,9 +81,9 @@
 
             </div>
             <div class="video-cont">
-                <button id="sound-button" class="btn btn-fill btn-large btn-margin-right">Sound On</button>
-                <a href="#rsvp" class="btn btn-fill btn-large btn-margin-right">אישור הגעה - RSVP</a>
+                <a href="#rsvp" class="btn btn-fill btn-large">אישור הגעה - RSVP</a>
             </div>
+            <button id="sound-button" class="btn btn-fill btn-small">Sound On</button>
         </div>
 
 
@@ -200,8 +200,8 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
                         </button>
                         <div class="section-padding">
-                            <h3>Thank you!</h3>
-                            <p>We are glad to see you join us on our big day.</p>
+                            <h3>תודה על המענה !</h3>
+                            <p>נשמח לראותכם :)</p>
                             <div id="add-to-cal"></div>
                         </div>
                     </div>
@@ -212,24 +212,37 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <h3>What are you waiting for?</h3>
-                    <p>We would greatly appreciate if you could RSVP before 1st of November '17</p>
+                    <h3>אשרו הגעה</h3>
+                    <p>נשמח לדעת אם תגיעו</p>
                     <form id="rsvp-form" class="rsvp-form" action="" method="POST">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-input-group">
-                                    <i class="fa fa-envelope"></i><input type="email" name="email" class=""
-                                        placeholder="Your email" required>
+                                    <i class="fa fa-user"></i><input name="name" class="" placeholder="שם מלא"
+                                        required>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-input-group">
-                                    <i class="fa fa-user"></i><input name="name" class="" placeholder="Your name"
-                                        required>
-                                </div>
+                                    <select class="fa-select">
+                                        <option class="fa-option">0</option>
+                                        <option class="fa-option">1</option>
+                                        <option class="fa-option">2</option>
+                                        <option class="fa-option">3</option>
+                                        <option class="fa-option">4</option>
+                                        <option class="fa-option">5</option>
+                                        <option class="fa-option">6</option>
+                                        <option class="fa-option">7</option>
+                                        <option class="fa-option">8</option>
+                                        <option class="fa-option">9</option>
+                                        <option class="fa-option">10</option>
+                                    </select>
+                                    <!-- <i class="fa fa-envelope"></i><input type="email" name="email" class="" -->
+                                        <!-- placeholder="Your email" required> -->
+                                <!-- </div> -->
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-input-group">
                                     <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
@@ -242,13 +255,12 @@
                                         class="" min="0" placeholder="Invite code" required>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="col-md-12" id="alert-wrapper"></div>
                         </div>
                         <button class="btn-fill rsvp-btn">
-                            Yes,
-                            that's me!
+                            אישור ושליחה
                         </button>
                     </form>
                 </div>
@@ -257,14 +269,14 @@
     </section>
 
     <footer style="background-color: #fff">
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center content">
                     <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
                     <p>Crafted by Ram with lots of <span class="fa fa-heart pulse2"></span> for Antara</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </footer>
     <script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
     <script src="node_modules/waypoints/lib/jquery.waypoints.min.js" onerror="loadJsFromCDN('waypoints.js')"></script>
