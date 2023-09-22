@@ -212,27 +212,27 @@ $(document).ready(function () {
         e.preventDefault();
         var data = $(this).serialize();
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>רק רגע!</strong> אנחנו שומרים את הפרטים'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
-        } else {
-            $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
-                .done(function (data) {
-                    console.log(data);
-                    if (data.result === "error") {
-                        $('#alert-wrapper').html(alert_markup('danger', data.message));
-                    } else {
-                        $('#alert-wrapper').html('');
-                        $('#rsvp-modal').modal('show');
-                    }
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-                });
-        }
+        // if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
+        //     && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+        //     $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
+        // } else {
+        $.post('https://script.google.com/macros/s/AKfycbxoGki1Ga0FZp6Dnk_oMOoY6iG47P1t4sIPjryUomMAvj4qnjQNrywAel72dwsp2epHvg/exec', data)
+            .done(function (data) {
+                console.log(data);
+                if (data.result === "error") {
+                    $('#alert-wrapper').html(alert_markup('danger', data.message));
+                } else {
+                    $('#alert-wrapper').html('');
+                    $('#rsvp-modal').modal('show');
+                }
+            })
+            .fail(function (data) {
+                console.log(data);
+                $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+            });
+        // }
     });
 
 });
@@ -241,7 +241,7 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var location = {lat: 22.5932759, lng: 88.27027720000001};
+    var location = { lat: 22.5932759, lng: 88.27027720000001 };
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: location,
@@ -255,7 +255,7 @@ function initMap() {
 }
 
 function initBBSRMap() {
-    var la_fiesta = {lat: 20.305826, lng: 85.85480189999998};
+    var la_fiesta = { lat: 20.305826, lng: 85.85480189999998 };
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: la_fiesta,
