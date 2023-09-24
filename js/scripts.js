@@ -218,7 +218,7 @@ $(document).ready(function () {
         //     && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
         //     $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         // } else {
-        $.post('https://script.google.com/macros/s/AKfycbxoGki1Ga0FZp6Dnk_oMOoY6iG47P1t4sIPjryUomMAvj4qnjQNrywAel72dwsp2epHvg/exec', data)
+        $.post('https://script.google.com/macros/s/AKfycbwcHVNlAu5uVdpz8Rrb3jLfQJXeot1jdIeyLrWcxulmoERMRBU545ZTWBfPrFdhfLrAmA/exec', data)
             .done(function (data) {
                 console.log(data);
                 if (data.result === "error") {
@@ -230,7 +230,7 @@ $(document).ready(function () {
             })
             .fail(function (data) {
                 console.log(data);
-                $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+                $('#alert-wrapper').html(alert_markup('danger', '<strong>סליחה!</strong>יש בעיות עם השרת '));
             });
         // }
     });
