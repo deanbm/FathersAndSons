@@ -14,11 +14,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>שמרו ת'תאריך!</title>
-    <meta name="description" content="מזמינים אתכם לחגוג איתנו - אשרו הגעה">
+    <meta name="description" content="מזמינים אתכם לשמוח איתנו">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
-    <meta property="og:title" content="שמרו ת'תאריך 27.12.23 קים & דין">
-    <meta property="og:description" content="מזמינים אתכם לחגוג איתנו - אשרו הגעה">
+    <meta property="og:title" content="קים ודין">
+    <meta property="og:description" content="מתרגשים להזמינכם פרטים בלינק">
     <meta property="og:image" content="https://deanbm.github.io/OurWedding/img/brushing_comprs.jpg">
     <meta property="og:url" content="https://deanbm.github.io/OurWedding/">
     <meta property="og:type" content="website">
@@ -75,6 +75,10 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
     <section class="video-section">
+        <div class="row">
+            <button id="sound-button" class="btn btn-clean btn-large">&#127925; תנו לשמועעעע את קים &#127925;</button>
+        </div>
+
 
         <div>
             <div class="video-container">
@@ -86,11 +90,10 @@
 
             </div>
 
-            <button id="sound-button" class="btn btn-fill btn-large">תנו לשמועעעע</button>
         </div>
 
         <div class="down-arrow floating-arrow">
-            <a href="#date" class="btn btn-fill btn-large">למטה</a>
+            <a href="#invitation" class="btn btn-fill btn-large">למטה</a>
         </div>
     </section>
 
@@ -101,13 +104,14 @@
                     <h3>קים רביבו & דין בן משה</h3>
                     <br></br>
                     <h2>ט"ו בטבת תשפ"ד</h2>
-                    <h2 id="date" style="margin-top: 50px;"><b>27.12.23</b></h2>
-
+                    <h2 id="date" style="margin-top: 50px;font-size:48px;"><b>27.12.23</b></h2>
+                    <h3 style="margin-top: 50px;">:) נשמח לראותכם</h3>
+                    <div id="add-to-cal"></div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="rsvp text-center" id="rsvp">
+    <!-- <section class="rsvp text-center" id="rsvp">
 
         <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -120,12 +124,12 @@
                             <p>נשמח לראותכם :)</p>
                             <div id="add-to-cal"></div>
                         </div>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+                    </div> -->
+                <!-- </div>
+            </div>
+        </div> -->
 
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <h3>מתאים לכם? (עוד לא מתחייבים)</h3>
@@ -140,9 +144,9 @@
                             <div class="col-md-6 col-sm-6">
 
                                 <div>
-                                    <fieldset class="fa-legend">
+                                    <fieldset id="legend-select" class="fa-legend">
                                         <div class="radio-element">
-                                            <input type="radio" id="in" name="rsvp" value="K" required />
+                                            <input type="radio" id="in" name="rsvp" value="K" required checked />
                                             <label for="in">מגיעים בכל הכח</label><br />
                                         </div>
 
@@ -159,6 +163,23 @@
                                     </fieldset>
                                 </div>
                             </div>
+                            <div class="col-md-6 col-sm-6" id="select-number-element">
+                                <div class="form-input-group">
+                                    <select id="select-number" class="fa-select">
+                                        <option class="fa-option">0</option>
+                                        <option class="fa-option">1</option>
+                                        <option class="fa-option">2</option>
+                                        <option class="fa-option">3</option>
+                                        <option class="fa-option">4</option>
+                                        <option class="fa-option">5</option>
+                                        <option class="fa-option">6</option>
+                                        <option class="fa-option">7</option>
+                                        <option class="fa-option">8</option>
+                                        <option class="fa-option">9</option>
+                                        <option class="fa-option">10</option>
+                                    </select>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-12" id="alert-wrapper"></div>
@@ -168,22 +189,11 @@
                                     אישור ושליחה
                                 </button>
                             </div>
-
-
-                            <div class="row">
-                                <div title="Add to Calendar" class="addeventatc">הוסף ליומן
-                                    <span class="start">27/12/2023 07:30 PM</span>
-                                    <span class="end">28/12/2023 02:00 AM</span>
-                                    <span class="timezone">Asia/Jerusalem</span>
-                                    <span class="title">החתונה של דין וקים</span>
-                                    <span class="location">האחוזה בית חנן</span>
-                                </div>
-                            </div>
                     </form>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="video-bg">
         <div id="bgndVideo" class="player"
@@ -241,9 +251,9 @@
                 isMuted = !isMuted;
                 video.muted = isMuted;
                 if (isMuted) {
-                    soundButton.textContent = "תנו לשמועעעע";
+                    soundButton.textContent = String.fromCodePoint(parseInt(127925)) + " תנו לשמועעעע את קים " + String.fromCodePoint(parseInt(127925));
                 } else {
-                    soundButton.textContent = "שששששש";
+                    soundButton.textContent = "שששששש" + String.fromCodePoint(parseInt(128263));
                 }
             }
 
