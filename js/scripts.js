@@ -237,17 +237,17 @@ $(document).ready(function () {
 
 });
 
-$('#legend-select').change(function () {
-    if($('#in').checked) {
-        $('#select-number-element').prop('hidden', false);
-    } 
-    if ($('#dougth').checked) {
-        $('#select-number-element').prop('hidden', true);
-    }
-    if ($('#no').checked) {
-        $('#select-number-element').prop('hidden', true);
-    }
-});
+// $('#legend-select').change(function () {
+//     if($('#in').checked) {
+//         $('#select-number-element').prop('hidden', false);
+//     } 
+//     if ($('#dougth').checked) {
+//         $('#select-number-element').prop('hidden', true);
+//     }
+//     if ($('#no').checked) {
+//         $('#select-number-element').prop('hidden', true);
+//     }
+// });
 
 /********************** Extras **********************/
 
