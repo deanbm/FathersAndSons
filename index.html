@@ -8,6 +8,8 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en"> <!--<![endif]-->
 
+
+
 <head>
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#">
 
@@ -75,18 +77,18 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
     <section class="video-section">
-        <div class="row">
+        <!-- <div class="row">
             <button id="sound-button" class="btn btn-clean btn-large">תנו לשמועעעע את קים &#127925;</button>
-        </div>
+        </div> -->
 
 
         <div>
             <div class="video-container">
 
-                <video id="background-video" autoplay muted loop playsinline>
+                <!-- <video id="background-video" autoplay muted loop playsinline>
                     <source src="img/480.mp4" type="video/mp4">
                     <source src="img/480.webm" type="video/webm">
-                </video>
+                </video> -->
 
             </div>
 
@@ -101,16 +103,63 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3>קים רביבו & דין בן משה</h3>
+                    <h3>סדנת אבות ובנים</h3>
                     <br></br>
-                    <h2>ט"ו בטבת תשפ"ד</h2>
-                    <h2 id="date" style="margin-top: 50px;font-size:48px;"><b>27.12.23</b></h2>
-                    <h3 style="margin-top: 50px;">מצפים ומתרגשים לראותכם</h3>
+                    <table id="sheet-table">
+                        <thead id="table-header"></thead>
+                        <tbody id="table-body"></tbody>
+                    </table>
+                    <!-- <h2>ט"ו בטבת תשפ"ד</h2>
+                    <h2 id="date" style="margin-top: 50px;font-size:48px;"><b>27.12.23</b></h2> -->
+                    <h3 style="margin-top: 50px;">מצפים לראותכם</h3>
                     <div id="add-to-cal"></div>
                 </div>
             </div>
         </div>
+        <script>
+            const sheetID = "1G9CrOe3d3_r41oeD__nevvo1C7hLiKalY947ItdE3G4"; // Replace with your Google Sheet ID
+            const sheetName = "Meetings"; // Change to your actual sheet name
+            const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json&tq=&sheet=${sheetName}`;
+
+            fetch(url)
+                .then(res => res.text())
+                .then(data => {
+                    const jsonData = JSON.parse(data.substr(47).slice(0, -2));
+                    const rows = jsonData.table.rows;
+                    console.log(rows) 
+
+                    let tableHeader = document.getElementById("table-header");
+                    let tableBody = document.getElementById("table-body");
+
+                    rows.forEach((row, rowIndex) => {
+                        let rowHTML = document.createElement("tr");
+
+                        row.c.forEach((cell) => {
+                            const cellValue = cell ? cell.v : ""; // Handle empty cells
+
+                            if (rowIndex === 0) {
+                                // First row: create table headers (<th>)
+                                let th = document.createElement("th");
+                                th.innerText = cellValue;
+                                tableHeader.appendChild(th);
+                            } else {
+                                // Other rows: create table data (<td>)
+                                let td = document.createElement("td");
+                                td.innerText = cellValue;
+                                rowHTML.appendChild(td);
+                            }
+                        });
+
+                        if (rowIndex > 0) {
+                            tableBody.appendChild(rowHTML);
+                        }
+                    });
+                })
+                .catch(err => console.error("Error fetching data:", err));
+        </script>
+
     </section>
+
     <!-- <section class="rsvp text-center" id="rsvp">
 
         <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
@@ -125,23 +174,29 @@
                             <div id="add-to-cal"></div>
                         </div>
                     </div> -->
-                <!-- </div>
+    <!-- </div>
             </div>
         </div> -->
 
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <h3>מתאים לכם? (עוד לא מתחייבים)</h3>
-                    <p></p>
-                    <form id="rsvp-form" class="rsvp-form" action="" method="POST">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-input-group">
-                                    <i class="fa fa-user"></i><input name="name" class="" placeholder="שם מלא" required>
-                                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h3>מתאים לכם? תשאירו פרטים!</h3>
+                <p></p>
+                <form id="rsvp-form" class="rsvp-form" action="" method="POST">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-user"></i><input name="name" class="" placeholder="שם מלא" required>
                             </div>
-                            <div class="col-md-6 col-sm-6">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-user"></i><input name="phone" class="" placeholder="מספר טלפון"
+                                    required>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-6 col-sm-6">
 
                                 <div>
                                     <fieldset id="legend-select" class="fa-legend">
@@ -162,40 +217,32 @@
                                         </div>
                                     </fieldset>
                                 </div>
+                            </div> -->
+                        <div class="col-md-6 col-sm-6" id="select-number-element">בחר סדנה
+                            <div class="form-input-group">
+                                <select id="select-number" class="fa-select">
+                                    <option class="fa-option">תל אביב </option>
+                                    <option class="fa-option">ירושלים</option>
+                                    <option class="fa-option">חיפה</option>
+                                </select>
                             </div>
-                            <div class="col-md-6 col-sm-6" id="select-number-element">
-                                <div class="form-input-group">
-                                    <select id="select-number" class="fa-select">
-                                        <option class="fa-option">0</option>
-                                        <option class="fa-option">1</option>
-                                        <option class="fa-option">2</option>
-                                        <option class="fa-option">3</option>
-                                        <option class="fa-option">4</option>
-                                        <option class="fa-option">5</option>
-                                        <option class="fa-option">6</option>
-                                        <option class="fa-option">7</option>
-                                        <option class="fa-option">8</option>
-                                        <option class="fa-option">9</option>
-                                        <option class="fa-option">10</option>
-                                    </select>
-                                </div>
-                            </div>
+                        </div>
 
-                            <div class="row">
-                                <div class="col-md-12" id="alert-wrapper"></div>
-                            </div>
-                            <div class="row">
-                                <button class="btn-fill rsvp-btn">
-                                    אישור ושליחה
-                                </button>
-                            </div>
-                    </form>
-                </div>
+                        <div class="row">
+                            <div class="col-md-12" id="alert-wrapper"></div>
+                        </div>
+                        <div class="row">
+                            <button class="btn-fill rsvp-btn">
+                                אישור ושליחה
+                            </button>
+                        </div>
+                </form>
             </div>
         </div>
-    </section> -->
+    </div>
+    </section>
 
-    <section id="video-bg">
+    <!-- <section id="video-bg">
         <div id="bgndVideo" class="player"
             data-property="{videoURL:'https://youtu.be/NTynXVh5d9o?si=hkYt-d52Oly5S_iE',quality: 'highres',containment:'#video-bg',autoPlay:true, mute:true, showControls:false, startAt:14, stopAt:259 ,opacity:1}">
         </div>
@@ -204,7 +251,7 @@
             <br></br>
             <p>בית חנן</p>
         </div>
-    </section>
+    </section> -->
 
 
 
