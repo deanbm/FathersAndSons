@@ -104,6 +104,10 @@
                 <div class="col-md-12 text-center">
                     <h3>סדנת אבות ובנים</h3>
                     <br></br>
+                       <table id="dataTable">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
                     <table id="sheet-table">
                         <thead id="table-header"></thead>
                         <tbody id="table-body"></tbody>
@@ -122,7 +126,7 @@
         <script>
         const apiKey = "AIzaSyB-2Cc7CxV8O0FUKi07xBrGRSaZHqKHisA";
         const spreadsheetId = "1G9CrOe3d3_r41oeD__nevvo1C7hLiKalY947ItdE3G4";
-        const range = "Sheet1!A1:D10"; // Adjust range as needed
+        const range = "Meetings!A1:B3"; // Adjust range as needed
 
         async function fetchData() {
             const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
